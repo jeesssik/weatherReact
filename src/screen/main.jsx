@@ -31,10 +31,7 @@ function Main() {
 };
   
     return (
-    //estructura de la pagina principal, hecha con bootstrap
-    //con una columna izquierda y una derecha, la izquierda más fina que la derecha
-    //en la derecha el forecast de la semana, la izquierda con el clima de hoy
-
+  
     <div className="container-fluid">
         <div className="row">
             <div className="col-md-6 col-lg-4">
@@ -48,73 +45,78 @@ function Main() {
                     }}
                 >
                     <div className="card-bodyL">
-                        <h5 className="card-title">Clima de hoy</h5>
+                        <h5 className="card-title">Today's Weather</h5>
                         <img src={clima.icono} alt='logo clima' id='logoClima'/>
+                         <p className="card-text">{ clima.descripcion}</p>
                         <p className="temp">{ clima.temperatura}</p>
                         <p className="card-text">Humedad <br/>{ clima.humedad}%</p>
-                        <p className="card-text">Clima<br/>{ clima.descripcion}</p>
+                       
                     </div>
                 </div>
             </div>
 
 
             <div className="col-md-6 col-lg-8">
-            
-        {//tengo que recorrer climaSemana para mostrar el forecast de la semana
-
-<div className="section">
-<div className="table-responsive">
-    <h1>Clima por hora</h1>
-            <table className="table" style={{ display: 'flex', flexDirection: 'row', overflowX: 'auto' }}>
-                <thead>
-                    <tr>
-                        {climaSemana.map((clima, index) => (
-                            <th key={index}>
-                                <div id='tarjetita'>
-                                    <div>{new Date(clima.dt_txt).toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' })}</div>
-
-                                    <div>{clima.main.temp}</div>
-                                    <div>{clima.weather[0].main}</div>
-                                    <div>{obtenerIconoClima(clima.weather[0].main)}</div>
-                                </div>
-                            </th>
-                        ))}
-                    </tr>
-                </thead>
-            </table>
-</div>
-</div>
-
-
-        }
-            
-            
-                
-                <table className="table" style={{ display: 'flex', flexDirection: 'row', overflowX: 'auto' }}>
-                    <thead>
-                        <tr>
-                            {climaSemana.map((clima, index) => {
-                                // Salta de a 7 posiciones
-                                if (index % 7 === 0) {
-                                    return (
-                                        <th key={index}>
-                                            <div id='tarjetita'>
-                                                <div>{new Date(clima.dt_txt).toLocaleDateString('es-ES')}</div><div>{clima.main.temp}</div>
-                                                <div>{clima.weather[0].main}</div>
-                                                <div>{obtenerIconoClima(clima.weather[0].main)}</div>
+    
+                <div className='container'>
+                    <div className='row hoy'>
+                    {climaSemana.slice(0, 5).map((clima, index) => {
+                            return (
+                                        <div key={index} className="col-md-6 col-lg-2">
+                                                <div id='tarjetita' className='card'>
+                                                    <div>{new Date(clima.dt_txt).toLocaleDateString('es-ES')}</div>
+                                                    <div>{clima.main.temp}</div>
+                                                    <div>{clima.weather[0].main}</div>
+                                                    <div>{obtenerIconoClima(clima.weather[0].main)}</div>
+                                                </div>
                                             </div>
-                                        </th>
-                                    );
-                                }
-                                return null; // No renderizar para las otras posiciones
-                            })}
-                        </tr>
-                    </thead>
-                </table>
+                                );
+                    })}
+                    </div>
+                </div>
 
-           
+
+                    
+            <div className="section">
+                <div>
+                    <h1>Today Highlights</h1>
+                        {climaSemana.slice(0, 1).map((clima) => (
+                            <>
+                                <div className='row rowa'>
+                                    <div className='indivi col-lg-4'>
+                                        
+                                        <div>Wind status: {clima.wind.speed}</div>
+                                        
+                                    </div>
+                                    <div className='indivi col-lg-4'>
+                                        
+                                        <div>WInd status: {clima.wind.speed}</div>
+                                        
+                                    </div>
+                                </div>
+                                <div className='row rowa'>
+                                    
+                                    <div className='indivi col-lg-4'>
+                                        
+                                        <div>Visibility: {clima.visibility}</div>
+                                        
+                                    </div>
+                                    <div className='indivi col-lg-4'>
+                                        
+                                        <div>Pressure: {clima.main.pressure}</div>
+                                        
+                                    </div>
+                                </div>
+                            </>
+                        ))}
+                                    
+                               
+                            
+                </div>
             </div>
-        </div>
+
+    </div>
+    </div>
     </div>
    
   );

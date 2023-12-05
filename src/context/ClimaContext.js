@@ -61,7 +61,16 @@ const ClimaProvider = (props) => {
      }else if(clima.descripcion ==='broken clouds'){
         clima.fondo = 'https://porinkulttuurisaato.org/poribiennale2020/assets/img/pilvi.png';
         clima.icono = 'https://icons.veryicon.com/png/o/weather/weather-15/few-clouds.png'
-     }
+     }else if(clima.descripcion ==='scattered clouds'){
+        clima.fondo = 'https://porinkulttuurisaato.org/poribiennale2020/assets/img/pilvi.png';
+        clima.icono = 'https://icons.veryicon.com/png/o/weather/weather-15/few-clouds.png'
+        }else if(clima.descripcion ==='shower rain'){
+            clima.fondo = 'https://porinkulttuurisaato.org/poribiennale2020/assets/img/pilvi.png';
+            clima.icono = 'https://icons.veryicon.com/png/o/weather/weather-15/rain.png'
+        }else if(clima.descripcion ==='light rain'){
+            clima.fondo = 'https://pngimg.com/uploads/rain/rain_PNG13462.png';
+            clima.icono = 'https://cdn3.iconfinder.com/data/icons/sunnyday-2/142/light_cloudy_heavy_rain-512.png'
+        }
 
 
     //useeffect que trae el clima por hora
