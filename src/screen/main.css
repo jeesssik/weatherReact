@@ -1,0 +1,40 @@
+body{
+    background-color: rgb(102, 140, 190)
+}
+#izq{
+    background-color: rgb(102, 140, 190);
+    height: 100vh;
+    color: rgb(222, 229, 231)
+}
+
+.card-bodyL{
+    background-color: rgba(6, 30, 61, 0.385);
+    border-radius: 25px;
+    margin: 0 auto;
+    height: 100vh;
+}
+
+#logoClima{
+    width: 100px;
+}
+
+.temp{
+    font-size: 56px;
+}
+
+
+#tarjetita{
+    background-color: rgba(0, 0, 0, 0.157);
+    padding: 30px;
+    margin: none;
+}
+
+
+
+
+
+
+
+
+
+
