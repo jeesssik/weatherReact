@@ -70,9 +70,10 @@ const ClimaProvider = (props) => {
         }else if(clima.descripcion ==='light rain'){
             clima.fondo = 'https://pngimg.com/uploads/rain/rain_PNG13462.png';
             clima.icono = 'https://cdn3.iconfinder.com/data/icons/sunnyday-2/142/light_cloudy_heavy_rain-512.png'
+        } else if(clima.descripcion ==='overcast clouds'){
+            clima.fondo = 'https://i.pinimg.com/originals/97/d6/30/97d630507853de7d27e943f072c09a08.png';
+            clima.icono = 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Weather-overcast.svg/1024px-Weather-overcast.svg.png'
         }
-
-
     //useeffect que trae el clima por hora
     
     useEffect(() => {

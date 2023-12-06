@@ -11,11 +11,12 @@ body{
     background-color: rgba(6, 30, 61, 0.385);
     border-radius: 25px;
     height: 100vh;
+    padding-top: 50%;
     
 }
 
 #logoClima{
-    width: 100px;
+    width: 180px;
 }
 
 .temp{

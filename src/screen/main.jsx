@@ -45,7 +45,6 @@ function Main() {
                     }}
                 >
                     <div className="card-bodyL">
-                        <h5 className="card-title">Today's Weather</h5>
                         <img src={clima.icono} alt='logo clima' id='logoClima'/>
                          <p className="card-text">{ clima.descripcion}</p>
                         <p className="temp">{ clima.temperatura}</p>
