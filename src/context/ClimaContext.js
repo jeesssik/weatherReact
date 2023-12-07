@@ -16,6 +16,7 @@ const ClimaProvider = (props) => {
         temperatura: '',
         humedad: '',
         descripcion: '',
+        unit:'metric',
         error: false
     });
 

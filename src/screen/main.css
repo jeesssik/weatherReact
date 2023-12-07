@@ -1,8 +1,9 @@
 body{
-    background-color: rgb(102, 140, 190)
+    background-color: #100E1D;
+    color:white
 }
 #izq{
-    background-color: rgb(102, 140, 190);
+    background-color: #1E213A;
     height: 100vh;
     color: rgb(222, 229, 231)
 }
@@ -29,16 +30,16 @@ body{
 }
 
 #tarjetita{
-    background-color: rgba(0, 0, 0, 0.164);
+    background-color: #1E213A;
     padding: 18px;
-    color: wheat
+    color: rgb(217, 209, 195)
 }
 
 .indivi{
-    background-color: rgba(0, 0, 0, 0.164);
+    background-color: #1E213A;
     margin: 4%;
     padding: 18px;
-    color: wheat
+    color: rgb(217, 209, 195);
 
 }
 

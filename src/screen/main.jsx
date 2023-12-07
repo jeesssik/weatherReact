@@ -46,9 +46,9 @@ function Main() {
                 >
                     <div className="card-bodyL">
                         <img src={clima.icono} alt='logo clima' id='logoClima'/>
-                         <p className="card-text">{ clima.descripcion}</p>
+                         <h1 className="card-text">{ clima.descripcion}</h1>
                         <p className="temp">{ clima.temperatura}</p>
-                        <p className="card-text">Humedad <br/>{ clima.humedad}%</p>
+                        <h3 className="card-text">Humidity <br/>{ clima.humedad}%</h3>
                        
                     </div>
                 </div>
@@ -56,7 +56,14 @@ function Main() {
 
 
             <div className="col-md-6 col-lg-8">
-    
+                    <div className="card-bodyR">
+                        <div className="row">
+                            <div className="">
+                                <button>C°</button>
+                                <button>F°</button>
+                            </div>
+                        </div>
+                    </div>
                 <div className='container'>
                     <div className='row hoy'>
                     {climaSemana.slice(0, 5).map((clima, index) => {
@@ -78,18 +85,24 @@ function Main() {
                     
             <div className="section">
                 <div>
-                    <h1>Today Highlights</h1>
+                    <h3 id='today'>Today Highlights</h3>
                         {climaSemana.slice(0, 1).map((clima) => (
                             <>
                                 <div className='row rowa'>
                                     <div className='indivi col-lg-4'>
                                         
-                                        <div>Wind status: {clima.wind.speed}</div>
+                                        <div>
+                                            <h6>Wind status</h6>
+                                             <h1>{clima.wind.speed}</h1>
+                                        </div>
                                         
                                     </div>
                                     <div className='indivi col-lg-4'>
                                         
-                                        <div>WInd status: {clima.wind.speed}</div>
+                                        <div>
+                                            <h6>Humidity</h6> 
+                                            <h1>{clima.main.humidity}%</h1>
+                                        </div>
                                         
                                     </div>
                                 </div>
@@ -97,12 +110,17 @@ function Main() {
                                     
                                     <div className='indivi col-lg-4'>
                                         
-                                        <div>Visibility: {clima.visibility}</div>
+                                        <div>
+                                            <h6>Visibility</h6>
+                                            <h1>{clima.visibility}</h1>
+                                        </div>
                                         
                                     </div>
-                                    <div className='indivi col-lg-4'>
+                                    <div className='indivi col-lg-4 '>
                                         
-                                        <div>Pressure: {clima.main.pressure}</div>
+                                        <div><h6>Pressure</h6>
+                                         <h1>{clima.main.pressure}</h1>
+                                    </div>
                                         
                                     </div>
                                 </div>
