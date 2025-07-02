@@ -1,51 +1,146 @@
-body{
-    background-color: #100E1D;
-    color:white
-}
-#izq{
-    background-color: #1E213A;
-    height: 100vh;
-    color: rgb(222, 229, 231)
+body {
+  background: linear-gradient(135deg, #4f8cff 0%, #a18cd1 100%);
+  font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+  color: #222;
+  margin: 0;
+  min-height: 100vh;
 }
 
-.card-bodyL{
-    background-color: rgba(6, 30, 61, 0.385);
-    border-radius: 25px;
-    height: 100vh;
-    padding-top: 50%;
-    
+.container-fluid {
+  padding: 40px 0;
 }
 
-#logoClima{
-    width: 180px;
+#izq {
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(8px);
+  border-radius: 25px;
+  padding: 32px;
+  margin-bottom: 24px;
+  transition: box-shadow 0.3s;
 }
 
-.temp{
-    font-size: 56px;
+#izq:hover {
+  box-shadow: 0 16px 40px 0 rgba(31, 38, 135, 0.45);
 }
 
-.hoy{
-    margin: 5%;
-    justify-content: center;
+.card-bodyL {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
 }
 
-#tarjetita{
-    background-color: #1E213A;
-    padding: 18px;
-    color: rgb(217, 209, 195)
+#logoClima {
+  width: 90px;
+  margin-bottom: 16px;
+  animation: float 2.5s ease-in-out infinite;
 }
 
-.indivi{
-    background-color: #1E213A;
-    margin: 4%;
-    padding: 18px;
-    color: rgb(217, 209, 195);
-
+@keyframes float {
+  0%, 100% { transform: translateY(0);}
+  50% { transform: translateY(-10px);}
 }
 
-.rowa{
-    
-    justify-content: center;
+.temp {
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 12px 0;
+}
+
+.card-bodyR {
+  background: rgba(255,255,255,0.18);
+  border-radius: 20px;
+  padding: 32px 24px;
+  box-shadow: 0 4px 24px 0 rgba(31, 38, 135, 0.15);
+  margin-bottom: 24px;
+}
+
+#today {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+  color: #4f8cff;
+}
+
+.rowa {
+  margin-bottom: 18px;
+}
+
+.indivi {
+  background: rgba(255,255,255,0.25);
+  border-radius: 18px;
+  box-shadow: 0 2px 12px 0 rgba(31, 38, 135, 0.10);
+  padding: 24px 12px;
+  margin: 8px 0;
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-align: center;
+}
+
+.indivi:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 8px 24px 0 rgba(31, 38, 135, 0.18);
+}
+
+.indivi h6 {
+  font-size: 1rem;
+  color: #6c7a89;
+  margin-bottom: 8px;
+}
+
+.indivi h1 {
+  font-size: 2.2rem;
+  color: #4f8cff;
+  font-weight: 700;
+}
+
+#tarjetita.card {
+  background: rgba(255,255,255,0.22);
+  border-radius: 18px;
+  box-shadow: 0 2px 12px 0 rgba(31, 38, 135, 0.10);
+  padding: 18px 8px;
+  margin: 10px 0;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+
+#tarjetita.card:hover {
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 8px 24px 0 rgba(31, 38, 135, 0.18);
+}
+
+#tarjetita .fa-icon {
+  font-size: 2.2rem;
+  color: #4f8cff;
+  margin: 8px 0;
+}
+
+button {
+  background: #4f8cff;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 8px 18px;
+  margin: 0 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  box-shadow: 0 2px 8px 0 rgba(31, 38, 135, 0.10);
+  transition: background 0.2s, color 0.2s;
+}
+
+button:hover {
+  background: #356ae6;
+  color: #e0e0e0;
+}
+
+@media (max-width: 768px) {
+  .container-fluid, .card-bodyR, #izq {
+    padding: 12px;
+  }
+  .indivi, #tarjetita.card {
+    padding: 12px 4px;
+  }
 }
 
 

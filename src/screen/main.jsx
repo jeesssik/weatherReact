@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './main.css';
 //importo el contexto
 import { ClimaContext } from '../context/ClimaContext';
@@ -29,6 +29,13 @@ function Main() {
             return null;
     }
 };
+    const [unidad, setUnidad] = useState('C');
+
+    const convertirTemp = (tempC) => {
+        if (unidad === 'C') return Math.round(tempC);
+        // Celsius a Fahrenheit
+        return Math.round((tempC * 9) / 5 + 32);
+    };
   
     return (
   
@@ -47,7 +54,9 @@ function Main() {
                     <div className="card-bodyL">
                         <img src={clima.icono} alt='logo clima' id='logoClima'/>
                          <h1 className="card-text">{ clima.descripcion}</h1>
-                        <p className="temp">{ clima.temperatura}</p>
+                        <p className="temp">
+                                {convertirTemp(clima.temperatura)}°{unidad}
+                            </p>
                         <h3 className="card-text">Humidity <br/>{ clima.humedad}%</h3>
                        
                     </div>
@@ -58,9 +67,25 @@ function Main() {
             <div className="col-md-6 col-lg-8">
                     <div className="card-bodyR">
                         <div className="row">
-                            <div className="">
-                                <button>C°</button>
-                                <button>F°</button>
+                            <div>
+                                <button
+                                    onClick={() => setUnidad('C')}
+                                    style={{
+                                        background: unidad === 'C' ? '#356ae6' : '#4f8cff',
+                                        color: '#fff'
+                                    }}
+                                >
+                                    C°
+                                </button>
+                                <button
+                                    onClick={() => setUnidad('F')}
+                                    style={{
+                                        background: unidad === 'F' ? '#356ae6' : '#4f8cff',
+                                        color: '#fff'
+                                    }}
+                                >
+                                    F°
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -71,7 +96,7 @@ function Main() {
                                         <div key={index} className="col-md-6 col-lg-2">
                                                 <div id='tarjetita' className='card'>
                                                     <div>{new Date(clima.dt_txt).toLocaleDateString('es-ES')}</div>
-                                                    <div>{clima.main.temp}</div>
+                                                    <div>{convertirTemp(clima.main.temp)}°{unidad}</div>
                                                     <div>{clima.weather[0].main}</div>
                                                     <div>{obtenerIconoClima(clima.weather[0].main)}</div>
                                                 </div>
