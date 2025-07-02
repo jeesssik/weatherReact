@@ -1,20 +1,32 @@
 body {
-  background: linear-gradient(135deg, #4f8cff 0%, #a18cd1 100%);
+  background: linear-gradient(120deg, #4f8cff, #a18cd1, #43cea2, #185a9d);
+  background-size: 400% 400%;
+  animation: gradientBG 18s ease infinite;
   font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
   color: #222;
   margin: 0;
   min-height: 100vh;
 }
 
+@keyframes gradientBG {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
 .container-fluid {
-  padding: 40px 0;
+  padding: 48px 0;
+}
+
+#izq, .card-bodyR, #tarjetita.card, .indivi {
+  background: rgba(255,255,255,0.18);
+  backdrop-filter: blur(10px);
+  border-radius: 22px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+  border: 1px solid rgba(255,255,255,0.25);
 }
 
 #izq {
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  background: rgba(255,255,255,0.15);
-  backdrop-filter: blur(8px);
-  border-radius: 25px;
   padding: 32px;
   margin-bottom: 24px;
   transition: box-shadow 0.3s;
@@ -49,10 +61,7 @@ body {
 }
 
 .card-bodyR {
-  background: rgba(255,255,255,0.18);
-  border-radius: 20px;
   padding: 32px 24px;
-  box-shadow: 0 4px 24px 0 rgba(31, 38, 135, 0.15);
   margin-bottom: 24px;
 }
 
@@ -67,14 +76,17 @@ body {
   margin-bottom: 18px;
 }
 
+.row.hoy {
+  justify-content: center;
+  gap: 18px;
+}
+
 .indivi {
-  background: rgba(255,255,255,0.25);
-  border-radius: 18px;
-  box-shadow: 0 2px 12px 0 rgba(31, 38, 135, 0.10);
   padding: 24px 12px;
   margin: 8px 0;
   transition: transform 0.2s, box-shadow 0.2s;
   text-align: center;
+  animation: fadeInUp 0.8s;
 }
 
 .indivi:hover {
@@ -95,14 +107,18 @@ body {
 }
 
 #tarjetita.card {
-  background: rgba(255,255,255,0.22);
-  border-radius: 18px;
-  box-shadow: 0 2px 12px 0 rgba(31, 38, 135, 0.10);
   padding: 18px 8px;
   margin: 10px 0;
   text-align: center;
   transition: transform 0.2s, box-shadow 0.2s;
   cursor: pointer;
+  animation: fadeInUp 0.8s;
+  min-width: 120px;
+  min-height: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 #tarjetita.card:hover {
@@ -116,22 +132,42 @@ body {
   margin: 8px 0;
 }
 
-button {
-  background: #4f8cff;
-  color: #fff;
-  border: none;
-  border-radius: 12px;
-  padding: 8px 18px;
-  margin: 0 6px;
-  font-size: 1rem;
-  font-weight: 600;
-  box-shadow: 0 2px 8px 0 rgba(31, 38, 135, 0.10);
-  transition: background 0.2s, color 0.2s;
+.fa-icon, .svg-inline--fa {
+  font-size: 2.5rem !important;
+  color: #43cea2 !important;
+  margin: 10px 0;
+  filter: drop-shadow(0 2px 8px #4f8cff55);
 }
 
-button:hover {
-  background: #356ae6;
+button {
+  background: linear-gradient(90deg, #4f8cff 60%, #43cea2 100%);
+  color: #fff;
+  border: none;
+  border-radius: 16px;
+  padding: 12px 28px;
+  margin: 0 8px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  box-shadow: 0 2px 12px 0 rgba(31, 38, 135, 0.10);
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+  letter-spacing: 1px;
+}
+
+button:hover, button:focus {
+  background: linear-gradient(90deg, #356ae6 60%, #185a9d 100%);
   color: #e0e0e0;
+  transform: scale(1.07);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (max-width: 768px) {
@@ -141,6 +177,59 @@ button:hover {
   .indivi, #tarjetita.card {
     padding: 12px 4px;
   }
+}
+
+#today, .card-text {
+  font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #356ae6;
+  text-shadow: 0 2px 8px #a18cd155;
+}
+
+.bg-morning {
+  background: linear-gradient(120deg, #fceabb, #f8b500, #e0c3fc, #8ec5fc);
+  background-size: 400% 400%;
+  animation: gradientBG 18s ease infinite;
+}
+
+.bg-afternoon {
+  background: linear-gradient(120deg, #4f8cff, #a18cd1, #43cea2, #185a9d);
+  background-size: 400% 400%;
+  animation: gradientBG 18s ease infinite;
+}
+
+.bg-evening {
+  background: linear-gradient(120deg, #614385, #516395, #a8c0ff, #fbc2eb);
+  background-size: 400% 400%;
+  animation: gradientBG 18s ease infinite;
+}
+
+.bg-night {
+  background: linear-gradient(120deg, #232526, #414345, #141e30, #243b55);
+  background-size: 400% 400%;
+  animation: gradientBG 18s ease infinite;
+}
+
+.bg-clear {
+  background: linear-gradient(120deg, #fceabb, #f8b500, #e0c3fc, #8ec5fc);
+  background-size: 400% 400%;
+  animation: gradientBG 18s ease infinite;
+}
+.bg-clouds {
+  background: linear-gradient(120deg, #d7d2cc, #304352, #a1c4fd, #c2e9fb);
+  background-size: 400% 400%;
+  animation: gradientBG 18s ease infinite;
+}
+.bg-rain {
+  background: linear-gradient(120deg, #485563, #29323c, #5f72bd, #9fd3c7);
+  background-size: 400% 400%;
+  animation: gradientBG 18s ease infinite;
+}
+.bg-snow {
+  background: linear-gradient(120deg, #e0eafc, #cfdef3, #f5f7fa, #c9d6ff);
+  background-size: 400% 400%;
+  animation: gradientBG 18s ease infinite;
 }
 
 

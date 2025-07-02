@@ -37,9 +37,28 @@ function Main() {
         return Math.round((tempC * 9) / 5 + 32);
     };
   
+    // Determina el momento del día
+    const hora = new Date().getHours();
+    let bgTimeClass = "bg-afternoon";
+    if (hora >= 6 && hora < 12) bgTimeClass = "bg-morning";
+    else if (hora >= 12 && hora < 18) bgTimeClass = "bg-afternoon";
+    else if (hora >= 18 && hora < 21) bgTimeClass = "bg-evening";
+    else bgTimeClass = "bg-night";
+
+    // Determina el clima principal
+    const weatherMain = clima?.descripcion?.toLowerCase() || "";
+    let bgWeatherClass = "";
+    if (weatherMain.includes("clear") || weatherMain.includes("despejado")) bgWeatherClass = "bg-clear";
+    else if (weatherMain.includes("cloud") || weatherMain.includes("nublado")) bgWeatherClass = "bg-clouds";
+    else if (weatherMain.includes("rain") || weatherMain.includes("lluvia")) bgWeatherClass = "bg-rain";
+    else if (weatherMain.includes("snow") || weatherMain.includes("nieve")) bgWeatherClass = "bg-snow";
+
+    // Combina ambas clases para un efecto sutil y personalizado
+    const bgClass = `${bgTimeClass} ${bgWeatherClass}`.trim();
+
     return (
   
-    <div className="container-fluid">
+    <div className={`container-fluid ${bgClass}`}>
         <div className="row">
             <div className="col-md-6 col-lg-4">
                 <div
